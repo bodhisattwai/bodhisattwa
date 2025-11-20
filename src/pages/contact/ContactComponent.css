@@ -15,20 +15,13 @@
   display: flex;
 }
 
-.address-heading-div {
-  display: flex;
-  margin-top: 80px;
-}
-
-.blog-heading-div > * {
-  flex: 1;
-}
+/* Removed address-heading-div and related styles since it's replaced by contact form */
 
 .contact-heading-div > * {
   flex: 1;
 }
 
-.address-heading-div > * {
+.blog-heading-div > * {
   flex: 1;
 }
 
@@ -48,10 +41,6 @@
 }
 
 .blog-heading-text-div {
-  text-align: center;
-}
-
-.address-heading-text-div {
   text-align: center;
 }
 
@@ -84,13 +73,6 @@
   margin-top: 40px;
 }
 
-.address-heading-text {
-  font-size: 30px;
-  font-family: "Google Sans Regular";
-  text-align: center;
-  margin-bottom: 10px;
-}
-
 .contact-header-detail-text {
   font-size: 20px;
   line-height: 30px;
@@ -121,11 +103,9 @@
   justify-content: center;
 }
 
-.address-btn-div {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 0;
+/* Contact form container spacing */
+.basic-contact .contact-margin-top {
+  margin-top: 80px;
 }
 
 @media (max-width: 1380px) {
@@ -151,33 +131,16 @@
     margin-top: 0px;
   }
 
-  .address-heading-text {
-    font-size: 20px;
-  }
-
   .blog-heading-div {
     flex-direction: column-reverse;
     margin-top: 60px;
-  }
-
-  .address-heading-div {
-    flex-direction: column;
-    margin-top: 60px;
-  }
-
-  .blog-heading-text-div {
-    margin-top: 40px;
-  }
-
-  .address-heading-text-div {
-    margin-top: 40px;
   }
 
   .contact-heading-img-div > * {
     max-width: 70%;
     max-height: 300px;
   }
-  
+
   .contact-heading-div {
     flex-direction: column;
   }
@@ -196,5 +159,10 @@
     margin-right: 0px;
     line-height: normal;
     text-align: center;
+  }
+
+  /* Adjust contact form spacing on mobile */
+  .basic-contact .contact-margin-top {
+    margin-top: 40px;
   }
 }
