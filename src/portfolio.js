@@ -21,7 +21,7 @@ const seo = {
 const greeting = {
   title: "Bodhisattwa Malik",
   logo_name: "BodhisattwaMalik",
-  nickname: "bodhimalik20",
+  nickname: "Bodhi",
   subTitle:
     "MBA | Business Analytics & Data Science | Azure Certified (AZ-900 & DP-900) | AI & Workflow Automation",
   description:

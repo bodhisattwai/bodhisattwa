@@ -69,86 +69,98 @@ export default function Contact() {
           <p className="subTitle contact-subtitle">{contactInfo.subtitle}</p>
 
           <div className="contact-form-container">
-            {submitted && (
-              <div className="success-message">
-                ✅ Thank you for your message! I'll get back to you soon.
-              </div>
-            )}
+            <div className="contact-form-section">
+              {submitted && (
+                <div className="success-message">
+                  <span role="img" aria-label="Success">
+                    ✅
+                  </span>{" "}
+                  Thank you for your message! I'll get back to you soon.
+                </div>
+              )}
 
-            {error && (
-              <div className="error-message">
-                ❌ {error}
-                <br />
-                <a
-                  href={`mailto:${contactInfo.email_address}`}
-                  style={{ color: "#007bff" }}
+              {error && (
+                <div className="error-message">
+                  <span role="img" aria-label="Error">
+                    ❌
+                  </span>{" "}
+                  {error}
+                  <br />
+                  <a
+                    href={`mailto:${contactInfo.email_address}`}
+                    style={{ color: "#007bff" }}
+                  >
+                    Click here to email me directly
+                  </a>
+                </div>
+              )}
+
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="form-input"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="form-input"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    className="form-input"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    className="form-textarea"
+                    rows="6"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="submit-button"
+                  disabled={loading}
                 >
-                  Click here to email me directly
-                </a>
-              </div>
-            )}
-
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div className="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div className="form-group">
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="form-textarea"
-                  rows="6"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="submit-button"
-                disabled={loading}
-              >
-                {loading ? "Sending..." : "Send Message"}
-              </button>
-            </form>
+                  {loading ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            </div>
 
             <div className="quick-contact-info">
               <div className="quick-contact-item">
-                <span className="contact-icon">📧</span>
+                <span className="contact-icon">
+                  <span role="img" aria-label="Email">
+                    📧
+                  </span>
+                </span>
                 <a
                   href={`mailto:${contactInfo.email_address}`}
                   className="quick-link"
@@ -158,7 +170,11 @@ export default function Contact() {
               </div>
 
               <div className="quick-contact-item">
-                <span className="contact-icon">📞</span>
+                <span className="contact-icon">
+                  <span role="img" aria-label="Phone">
+                    📞
+                  </span>
+                </span>
                 <a href={`tel:${contactInfo.number}`} className="quick-link">
                   {contactInfo.number}
                 </a>
